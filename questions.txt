@@ -1,0 +1,25 @@
+1.	What is the format of the training data?
+
+
+2.	How does the classify method work? Write its algorithm based on the code is perceptron.py.
+
+
+3.	What is your validation accuracy with the default setup?
+
+
+4.	One of the problems with the perceptron is that its performance is sensitive to several practical details, such as how many iterations you train it for, and the order you use for the training examples (in practice, using a randomized order works better than a fixed order). The current code uses a default value of 3 training iterations. You can change the number of iterations for the perceptron with the -i iterations option. 
+a.	Try different numbers of iterations; how does it influence the performance (validation accuracy & time to run)? (In practice, you would use the performance on the validation set to figure out when to stop training, but you don't need to implement this stopping criterion for this assignment.) 
+
+b.	Create a graph to show how each of these values changes over time, and submit the graph on paper.
+
+5.	The method findHighWeightFeatures(self, label) in perceptron.py returns a list of the 100 features with highest weight for that label. You can display the 100 pixels with the largest weights using the command:
+python dataClassifier.py -w  
+a.	Use this command to look at the weights. Which of the following sequence of weights (shown in the assignment file) is most representative of the perceptron?
+ 
+
+6.	Your code should be general enough that it will work on any dataset that is already processed for use in a perceptron.  Try it out by solving another problem: Determining which images are of a face, and which are of anything else.  This data is a set of face images in which edges have already been detected; you are classifying whether the edges depict a face or not.  Run your code with the command (This changes which data to use, but nothing else):
+python dataClassifier.py –d faces
+How accurate was your perceptron on this problem?
+
+
+7.	How much preprocessing went into each of the data sets to get them into the form you have?
