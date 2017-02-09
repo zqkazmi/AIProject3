@@ -47,18 +47,29 @@ class PerceptronClassifier:
 	(and thus represents a vector a values).
 	"""
 	def train( self, trainingData, trainingLabels, validationData, validationLabels ):
-		
 
 		self.features = trainingData[0].keys() # could be useful later
 		# DO NOT ZERO OUT YOUR WEIGHTS BEFORE STARTING TRAINING, OR
 		# THE AUTOGRADER WILL LIKELY DEDUCT POINTS.
-
 		for iteration in range(self.max_iterations):
 			print "Starting iteration ", iteration, "..."
 			for i in range(len(trainingData)):
 				# BEGIN SOLUTION METHOD
-				print("PUT YOUR CODE HERE")
-				# END SOLUTION
+				# Steps: Find class to activate, check if result is correct, if not update weights!
+				highest = None
+				chosenClass = None
+				dataum = trainingData[i]
+				for y in self.legalLabels:
+					score = dataum * self.weights[y];
+					if score > highest or highest is None:
+						highest = score
+						chosenClass = y
+
+				output_result = trainingLabels[i]
+				if chosenClass != output_result:
+					self.weights[output_result] = self.weights[output_result] + dataum
+					self.weights[chosenClass] = self.weights[chosenClass] - dataum
+						# END SOLUTION
 	"""
 	Classifies each datum as the label that most closely matches the prototype vector
 	for that label.  See the project description for details.

@@ -1,16 +1,18 @@
 1.	What is the format of the training data?
-
+	Our data is divided into test, training and validation. Within those three divisions we have labels and image sections. The image portion includes has an image created by + and -, for digits its the numbers 0-9 while for face it people's face and body for some.
 
 2.	How does the classify method work? Write its algorithm based on the code is perceptron.py.
-
+The Classify method run two loops to create a list. The outer loop goes through all the data and the inner loop goes through the labels. Using util counter, we get the weight at that location and multiply it by the dataum (counter). This value is then saved in vectors list. When one iteration of inner loop is done and we get out of the loop, we had the highest weight from vector(weighst for labels) to guesses list. Just like we did in class, this is first finding the weight multiplied by features and then it is checking which one is the highest from those weights and saving them in a list as our guesses. 
 
 3.	What is your validation accuracy with the default setup?
-
+Validation accuracy with default setup is at 55%
 
 4.	One of the problems with the perceptron is that its performance is sensitive to several practical details, such as how many iterations you train it for, and the order you use for the training examples (in practice, using a randomized order works better than a fixed order). The current code uses a default value of 3 training iterations. You can change the number of iterations for the perceptron with the -i iterations option. 
 a.	Try different numbers of iterations; how does it influence the performance (validation accuracy & time to run)? (In practice, you would use the performance on the validation set to figure out when to stop training, but you don't need to implement this stopping criterion for this assignment.) 
-
+When we change the iterations our performance does change, not by a lot though but it still does. I ran the code with 10 iterations and my validation was at 56% but testing at 54% while with 3 iterations it was at 55% for validation and 48% for testing. Then 
+when i tried to 15 iterations i got the same result as for 10. Since my validation is not improving and neither is my testing, it is safe to say I should not go over the 15 becasue if chose to go over the 15, I will start to lose accuracy. I tried couple more test and validation stays at 56% even with higher number of iterations so this means it is wasting time to run more tests- my algorithm is only giving upto 56% test and if we run more iterations we will only lose the accuracy. Running larger number of iterations takes significantly longer than running small number of iterations. 
 b.	Create a graph to show how each of these values changes over time, and submit the graph on paper.
+
 
 5.	The method findHighWeightFeatures(self, label) in perceptron.py returns a list of the 100 features with highest weight for that label. You can display the 100 pixels with the largest weights using the command:
 python dataClassifier.py -w  
@@ -20,6 +22,7 @@ a.	Use this command to look at the weights. Which of the following sequence of w
 6.	Your code should be general enough that it will work on any dataset that is already processed for use in a perceptron.  Try it out by solving another problem: Determining which images are of a face, and which are of anything else.  This data is a set of face images in which edges have already been detected; you are classifying whether the edges depict a face or not.  Run your code with the command (This changes which data to use, but nothing else):
 python dataClassifier.py –d faces
 How accurate was your perceptron on this problem?
-
+I have a validation accuracy of 98% and testing accuracy 81%. 
 
 7.	How much preprocessing went into each of the data sets to get them into the form you have?
+Alot of preprocessing needed to be done in order to get the data in the final format given to us as data. As we can see the pictures are full color with all features but in the datasets it is in form of + and -. They had to get + and - for the structure of the face and the images in order to get the data set.s 
